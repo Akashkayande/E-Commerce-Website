@@ -86,7 +86,7 @@ const NewArrivals = ()=>{
         <div ref={scrollRef}  className={`container scrollbar-hide mx-auto overflow-x-scroll flex space-x-6 relative ${isDragging ? "cursor-grabbing":"cursor-grab"}`} onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUpOrLeave} onMouseLeave={handleMouseUpOrLeave}>
             {newArrivals?.map((product)=>(
                 <div key={product._id} className='min-w-[100%] sm:min-w-[50%] lg:min-w-[30%] relative'>
-                    <img  src={product.Images[0]?.url} alt={product.Images[0]?.altText || product.name} className='w-full h-[500px] object-cover rounded-lg' draggable="false" />
+                    <img  src={product.images[0]?.url} alt={product.images[0]?.altText || product.name} className='w-full h-[500px] object-cover rounded-lg' draggable="false" />
                     <div className='absolute bottom-0 left-0 right-0 bg-opacity-50 backdrop-blur-md text-white p-4 rounded-b-lg'>
                         <Link to={`/product/${product._id}`} className='block'>
                         <h4 className='font-medium'> {product.name} </h4>

@@ -50,7 +50,7 @@ const Home = () => {
         )}
         <div className="container mx-auto">
           <h2 className='text-center text-3xl font-bold mb-4'> Top Wears for Women</h2>
-          <ProductGrid products={products} loading={loading} error={error}/>
+          <ProductGrid products={Array.isArray(products) ? products : []} loading={loading} error={error}/>
         </div>
         <FeaturedCollection/>
         <FeaturesSections/>
@@ -59,3 +59,5 @@ const Home = () => {
 }
 
 export default Home
+
+

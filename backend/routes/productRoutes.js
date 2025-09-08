@@ -419,6 +419,7 @@ router.get("/", async (req, res) => {
 });
 
 // ✅ Place static routes BEFORE dynamic :id
+// ✅ Place static routes BEFORE dynamic :id
 router.get("/best-seller", async (req, res) => {
   try {
     const bestSeller = await Product.findOne().sort({ rating: -1 });
@@ -432,6 +433,7 @@ router.get("/best-seller", async (req, res) => {
     res.status(500).send("server error");
   }
 });
+
 
 router.get("/new-arrivals", async (req, res) => {
   try {

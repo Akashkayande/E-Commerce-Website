@@ -76,7 +76,7 @@ const ProductDetails = ({productId}) => {
         <div className="max-w-6xl mx-auto bg-white p-8 rounded-lg">
             <div className='flex flex-col md:flex-row'>
                 <div className="hidden md:flex flex-col space-y-4 mr-6">
-                    {selectedProduct.Images.map((image,index)=>(
+                    {selectedProduct.images.map((image,index)=>(
                         <img  key={index} src={image.url} alt={image.altText} className={`w-20 h-20 object-cover rounded-lg cursor-pointer border ${mainImage === image.url ? "border-black":"border-gray-300"
                         }`} onClick={()=>setMainImage(image.url)}/>
                     ))}
@@ -87,7 +87,7 @@ const ProductDetails = ({productId}) => {
                     </div>
                 </div>
                 <div className="md:hidden flex overscroll-x-scroll space-x-4 mb-4">
-                    {selectedProduct.Images.map((image,index)=>(
+                    {selectedProduct.images.map((image,index)=>(
                         <img  key={index} src={image.url} alt={image.altText}  className={`w-20 h-20 object-cover rounded-lg cursor-pointer border ${mainImage===image.url ? "border-black":"border-gray-300"}`} onClick={()=>setMainImage(image.url)} />
                     ))}
                 </div>
@@ -148,7 +148,7 @@ const ProductDetails = ({productId}) => {
             </div>
             <div className="mt-20">
                 <h2 className='text-2xl text-center font-medium mb-4'>You May Also Like</h2>
-                <ProductGrid products={similarProduct}/>
+                <ProductGrid products={similarProducts} loading={loading} error={error}/>
             </div>
 
         </div>
@@ -158,3 +158,4 @@ const ProductDetails = ({productId}) => {
 }
 
 export default ProductDetails
+
