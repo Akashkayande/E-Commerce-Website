@@ -24,12 +24,12 @@ router.post("/",async(req,res)=>{
         if(cart){
             const productIndex = cart.products.findIndex((p)=>p.productId.toString()===productId && p.size === size && p.color ===color);
             if(productIndex >-1){
-                cart.products[productIndex].quantity +=quantity;
+                cart.products[productIndex].quantity =quantity;
             }else{
                 cart.products.push({
                     productId,
                     name:product.name,
-                    Image:product.images[0].url,
+                    image:product.images[0].url,
                     price:product.price,
                     size,
                     color,
@@ -42,12 +42,13 @@ router.post("/",async(req,res)=>{
         }else{
             const newCart = await Cart.create({
                 user:userId ? userId:undefined,
-                guestId:guestId ? guestId:"guest_"+ new Date().getTime,
+                guestId: guestId ? guestId : "guest_" + new Date().getTime(),
+
                 products:[
                     {
                         productId,
-                        name:protect.name,
-                        Image:product.images[0].url,
+                        name:product.name,
+                        image:product.images[0].url,
                         price:product.price,
                         size,
                         color,

@@ -9,12 +9,21 @@ const ProductGrid = ({products = [],loading,error}) => {
         return <p>Error:{error}</p>
     }
     if(!Array.isArray(products)) products = [];
+
+    if (products.length === 0) {
+    return (
+      <div className="text-center col-span-full py-10">
+        <p className="text-lg font-medium text-gray-600">No products found</p>
+        <p className="text-sm text-gray-400">Try adjusting filters or search again.</p>
+      </div>
+    )
+  }
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
         {products.map((product,index)=>(
             <Link key={index} to={`/product/${product._id}`} className="block">
                 <div className="bg-white p-4 rounded-lg">
-                    <div className="w-full h-96 mb-4">
+                    <div className="w-full md:h-115 mb-4">
                         <img src={product.images[0].url} alt={product.images[0].altext || product.name}
                         className='w-full h-full object-cover rounded-lg'/>
                     </div>

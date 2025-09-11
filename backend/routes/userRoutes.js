@@ -9,7 +9,7 @@ router.post("/register",async(req,res)=>{
     try {
         let user = await User.findOne({email});
         if(user){
-            return res.status(400).json({message:"User already exists"});
+            return res.status(400).json({status:"false",message:"User already exists"});
         }
         user=new User({name,email,password});
         await user.save();

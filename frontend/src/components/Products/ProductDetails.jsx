@@ -27,8 +27,8 @@ const ProductDetails = ({productId}) => {
     },[dispatch,productFetchId]);
 
     useEffect(()=>{
-        if(selectedProduct?.Images?.length >0){
-            setMainImage(selectedProduct.Images[0].url);
+        if(selectedProduct?.images?.length >0){
+            setMainImage(selectedProduct.images[0].url);
         }
     },[selectedProduct])
 
@@ -112,9 +112,9 @@ const ProductDetails = ({productId}) => {
                     </div>
                     <div className="mb-4 ">
                         <p className='text-gray-700'>Size:</p>
-                        <div className='flex gap-2 mt-2'>
+                        <div className='flex gap-2 mt-2 '>
                             {selectedProduct.sizes.map((size)=>(
-                            <button key={size} onClick={()=>setSelectedSize(size)} className={`px-4 py-2 rounded border ${selectedSize=== size ? "bg-black text-white":""}`}>{size}</button>))}
+                            <button key={size} onClick={()=>setSelectedSize(size)} className={`px-4 py-2 rounded border cursor-pointer ${selectedSize=== size ? "bg-black text-white":""}`}>{size}</button>))}
                         </div>
                     </div> 
 

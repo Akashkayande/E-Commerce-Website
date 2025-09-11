@@ -18,4 +18,4 @@ const PayPalButton = ({amount,onSuccess,onError}) => {
     )
 }
 
-export default PayPalButton
+export default PayPalButton;

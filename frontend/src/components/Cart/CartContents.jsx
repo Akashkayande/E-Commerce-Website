@@ -1,7 +1,7 @@
 import React from 'react'
 import { RiDeleteBin3Line } from 'react-icons/ri'
 import { useDispatch } from 'react-redux'
-import { updateCartItemQuantity } from '../../redux/slices/cartSlice';
+import { removeFromCart, updateCartItemQuantity } from '../../redux/slices/cartSlice';
 
 const CartContents = ({cart,userId,guestId}) => {
     const dispatch = useDispatch();
@@ -29,7 +29,7 @@ const CartContents = ({cart,userId,guestId}) => {
                             <div className='flex items-center mt-2'>
                                 <button onClick={()=>handleAddToCart(product.productId,-1,product.quantity,product.size,product.color)} className='border rounded px-2 py-1 text-xl font-medium'>-</button>
                                 <span className='mx-4'>{product.quantity}</span>
-                                <button onClick={()=>handleAddToCart(product.productId,1,product.quantity,product.size,product.color)} className='border rounded px-2 py-1 text-xl font-medium'> +</button>
+                                <button onClick={()=>handleAddToCart(product.productId,1,product.quantity,product.size,product.color)} className='border rounded px-2 py-1 text-xl cursor-pointer font-medium'> +</button>
                             </div>
 
                         </div>
@@ -37,7 +37,7 @@ const CartContents = ({cart,userId,guestId}) => {
                     <div>
                         <p>${product.price.toLocaleString()}</p>
                         <button onClick={()=>handleRemoveFromCart(product.productId,product.size,product.color)}>
-                            <RiDeleteBin3Line className='h-6 w-6 mt-2 text-red-600'/>
+                            <RiDeleteBin3Line className='h-6 w-6 mt-2 text-red-600 cursor-pointer'/>
                         </button>
                     </div>
                 </div>

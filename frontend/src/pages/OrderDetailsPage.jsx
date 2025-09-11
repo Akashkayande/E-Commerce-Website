@@ -1,46 +1,21 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom';
+import { fetchOrderDetails } from '../redux/slices/orderSlice';
 
 const OrderDetailsPage = () => {
     const {id} = useParams();
-    const [orderDetails,setOrderDetails] = useState(null);
-    const navigate = useNavigate()
-    const handleRoute = () =>{
-        navigate("/my-orders")
-    }
+    const dispatch = useDispatch();
+    const {orderDetails,loading,error} = useSelector((state)=>state.orders);
+
     useEffect(()=>{
-        const mockOrderDetails = {
-            _id:id,
-            createdAt: new Date(),
-            isPaid: true,
-            isDelivered:false,
-            paymentMethod:"PayPal",
-            shippingMethod:"Standard",
-            shippingAddress:{city:"New York",country:"USA"},
-            orderItems:[
-                {
-                    productId:"1",
-                    name:"jacket",
-                    price:120,
-                    quantity:1,
-                    image:"https://picsum.photos/500?/random=1",
+        dispatch(fetchOrderDetails(id));
+    },[dispatch,id]);
 
-                },
-                {
-                    
-                    productId:"2",
-                    name:"jacket",
-                    price:120,
-                    quantity:1,
-                    image:"https://picsum.photos/500?/random=2",
+    if(loading) return <p>Loading...</p>
+    if(error) return <p>Error:{error}</p>
 
-                
-                }
-            ]
-        }
-        setOrderDetails(mockOrderDetails);
-    },[id]);
 
   return (
     <div className='max-w-7xl mx-auto p-4 sm:p-6'>
@@ -94,7 +69,7 @@ const OrderDetailsPage = () => {
                                         <Link to={`/product/${item.productId}`} className='text-blue-500 hover:underline'>{item.name}</Link>
                                     </td>
                                     <td className='py-2 px-2'>${item.price}</td>
-                                    <td className='py-2 px-2'>${item.quantity}</td>
+                                    <td className='py-2 px-2'>{item.quantity}</td>
                                     <td className='py-2 px-2'>${item.price * item.quantity}</td>
                                     
                                 </tr>

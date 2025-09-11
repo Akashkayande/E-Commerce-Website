@@ -5,7 +5,7 @@ export const fetchUsers =  createAsyncThunk("admin/fetchUsers",async ()=>{
     const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/users`,{
         headers:{Authorization:`Bearer ${localStorage.getItem("userToken")}`}
     });
-    response.data;
+    return response.data;
 });
 
 export const addUser = createAsyncThunk("admin/addUser", async (userData, { rejectWithValue }) => {
@@ -35,7 +35,7 @@ export const updateUser = createAsyncThunk("admin/updateUser", async ({ id, name
             },
         }
     );
-    return response.data;
+    return response.data.user;
 });
 
 export const deleteUser = createAsyncThunk("admin/deleteUser", async (id) => {

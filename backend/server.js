@@ -34,11 +34,12 @@ app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/checkout", checkoutRoutes);
 app.use("/api/upload", uploadRoutes);
+app.use("/api/orders",orderRoutes);
 app.use("/api", subscribeRoutes);
 
 // admin
 app.use("/api/admin/users", adminRoutes);
-app.use("/api/admin/product", productAdminRoutes);
+app.use("/api/admin/products", productAdminRoutes);
 app.use("/api/admin/orders", adminOrderRoutes);
 
 app.listen(PORT, () => {

@@ -18,11 +18,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=39",
+        url: "https://cdn2.propercloth.com/images/promo-pages/oxfords/hero_lg.jpg",
         altText: "Classic Oxford Button-Down Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=40",
+        url: "https://tse3.mm.bing.net/th/id/OIP.ZEhTYAeUA2QOE9GO5y6yGwHaJ4?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
         altText: "Classic Oxford Button-Down Shirt Back View",
       },
     ],
@@ -40,17 +40,17 @@ const products = [
     category: "Top Wear",
     brand: "Modern Fit",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Black", "Navy Blue", "Burgundy"],
+    colors: ["White", "Green", "Red"],
     collections: "Formal Wear",
     material: "Cotton Blend",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=41",
+        url: "https://image.lexica.art/full_webp/0ab0b9fb-e587-4c4f-9dc0-24ee4f912b14",
         altText: "Slim-Fit Stretch Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=42",
+        url: "https://image.lexica.art/full_webp/220f044f-719e-4567-8013-aa88466d70bc",
         altText: "Slim-Fit Stretch Shirt Back View",
       },
     ],
@@ -68,17 +68,17 @@ const products = [
     category: "Top Wear",
     brand: "Street Style",
     sizes: ["S", "M", "L", "XL", "XXL"],
-    colors: ["Light Blue", "Dark Wash"],
+    colors: ["Blue", "Black"],
     collections: "Casual Wear",
     material: "Denim",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=43",
+        url: "https://tse4.mm.bing.net/th/id/OIP.U3BDVPwmDCRBob2nqGopfwHaLH?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
         altText: "Casual Denim Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=44",
+        url: "https://cdn.shopify.com/s/files/1/0014/0342/0766/products/casual-snap-button-denim-shirt-11270a_6_1400x.jpg?v=1571723868",
         altText: "Casual Denim Shirt Back View",
       },
     ],
@@ -96,17 +96,17 @@ const products = [
     category: "Top Wear",
     brand: "Beach Breeze",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Tropical Print", "Navy Palms"],
+    colors: ["White", "Gray"],
     collections: "Vacation Wear",
     material: "Viscose",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=45",
+        url: "https://tse4.mm.bing.net/th/id/OIP.eZyWvzGNoNlexXCZ-Mb6wgHaHa?r=0&cb=ucfimg2ucfimg=1&w=1024&h=1024&rs=1&pid=ImgDetMain&o=7&rm=3",
         altText: "Printed Resort Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=1",
+        url: "https://www.stylethatmatters.com/img/17169052123218.jpg",
         altText: "Printed Resort Shirt Back View",
       },
     ],
@@ -124,17 +124,17 @@ const products = [
     category: "Top Wear",
     brand: "Urban Chic",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["White", "Gray"],
+    colors: ["Black", "Gray"],
     collections: "Business Wear",
     material: "Cotton",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=47",
+        url: "https://th.bing.com/th/id/R.87f618be3235253bc951ab30d39ac0e5?rik=A%2fLL1epQC%2fQmCg&riu=http%3a%2f%2fwww.vudu.co.in%2fcdn%2fshop%2fproducts%2f2_b2e73acc-e657-4865-99ff-34a30a8618f8.jpg%3fv%3d1681728244&ehk=7qc8yDlT%2bjvZaFwlzbpwu6biJ8K%2bl5pvAimNeGkA5JM%3d&risl=&pid=ImgRaw&r=0",
         altText: "Slim-Fit Easy-Iron Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=2",
+        url: "https://5.imimg.com/data5/SELLER/Default/2022/11/YC/LV/WA/180075798/black-denim-shirt-1000x1000.jpg",
         altText: "Slim-Fit Easy-Iron Shirt Front View",
       },
     ],
@@ -152,17 +152,17 @@ const products = [
     category: "Top Wear",
     brand: "Polo Classics",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["White", "Navy", "Red"],
+    colors: ["Blue", "Navy", "Black"],
     collections: "Casual Wear",
     material: "Cotton",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=3",
+        url: "https://5.imimg.com/data5/SELLER/Default/2023/4/297288989/ZO/DI/DO/65581361/classic-polo-t-shirt-500x500.jpg",
         altText: "Polo T-Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=4",
+        url: "https://5.imimg.com/data5/SELLER/Default/2023/4/297288992/AR/RM/JI/65581361/classic-polo-t-shirt-500x500.jpg",
         altText: "Polo T-Shirt Back View",
       },
     ],
@@ -186,8 +186,12 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=5",
+        url: "https://media.boohoo.com/i/boohoo/bmm38636_black_xl/male-black-oversized-homme-graphic-t-shirt/?w=900&qlt=default&fmt.jp2.qlt=70&fmt=auto&sm=fit",
         altText: "Oversized Graphic T-Shirt Front View",
+      },
+      {
+        url: "https://tse3.mm.bing.net/th/id/OIP.DV7YXEU_unDt7GYScEhgiwHaLH?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+        altText: "Oversized Graphic T-Shirt Back View",
       },
     ],
     rating: 4.6,
@@ -204,13 +208,13 @@ const products = [
     category: "Top Wear",
     brand: "Heritage Wear",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Heather Gray", "Olive", "Black"],
+    colors: ["Green", "Olive", "Black"],
     collections: "Casual Wear",
     material: "Cotton Blend",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=6",
+        url: "https://i.pinimg.com/originals/71/c9/88/71c98843b7a85af9e1a67b04290d6dae.jpg",
         altText: "Regular-Fit Henley Shirt Front View",
       },
     ],
@@ -228,13 +232,17 @@ const products = [
     category: "Top Wear",
     brand: "Winter Basics",
     sizes: ["S", "M", "L", "XL", "XXL"],
-    colors: ["Charcoal", "Dark Green", "Navy"],
+    colors: ["Black", "Dark Green", "White"],
     collections: "Winter Essentials",
     material: "Cotton",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=7",
+        url: "https://ml.thcdn.com/productimg/960/960/14314340-9435060750629758.jpg",
+        altText: "Long-Sleeve Thermal Tee Front View",
+      },
+      {
+        url: "https://tse4.mm.bing.net/th/id/OIP.DnbXO0QhbQ0iBtjuiNLzlAAAAA?r=0&cb=ucfimg2ucfimg=1&w=474&h=663&rs=1&pid=ImgDetMain&o=7&rm=3",
         altText: "Long-Sleeve Thermal Tee Front View",
       },
     ],
@@ -252,13 +260,17 @@ const products = [
     category: "Top Wear",
     brand: "Everyday Comfort",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["White", "Black", "Navy"],
+    colors: ["White", "Black", "Red"],
     collections: "Basics",
     material: "Cotton",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=8",
+        url: "https://tse3.mm.bing.net/th/id/OIP.BPc0Bsr2dzrzOL6Q0a5XYgHaJE?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+        altText: "V-Neck Classic T-Shirt Front View",
+      },
+      {
+        url: "https://target.scene7.com/is/image/Target/GUEST_4bf4d2be-5396-40e9-87f3-f99466dc412f",
         altText: "V-Neck Classic T-Shirt Front View",
       },
     ],
@@ -276,13 +288,17 @@ const products = [
     category: "Bottom Wear",
     brand: "ActiveWear",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Black", "Gray", "Navy"],
+    colors: ["Black", "Gray", "Navy","Blue"],
     collections: "Casual Collection",
     material: "Cotton Blend",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=9",
+        url: "https://tse3.mm.bing.net/th/id/OIP.Ij_XZmwMXe5LmgWz-oa6PQHaJS?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+        altText: "Slim Fit Joggers Front View",
+      },
+      {
+        url: "https://www.jiomart.com/images/product/600x750/441142783_jetblack/slim-fit-joggers-with-drawstring-waist-model-441142783_jetblack-0-202209292247.jpg",
         altText: "Slim Fit Joggers Front View",
       },
     ],
@@ -300,14 +316,18 @@ const products = [
     category: "Bottom Wear",
     brand: "UrbanStyle",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Olive", "Black"],
+    colors: ["Gray", "Black"],
     collections: "Urban Collection",
     material: "Cotton",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=10",
+        url: "https://th.bing.com/th/id/R.d71e4cd61e56bf61f2a88f81d1cebfac?rik=CtfcQOSJI53lHA&riu=http%3a%2f%2fcdn.shopify.com%2fs%2ffiles%2f1%2f0583%2f3218%2f4771%2fproducts%2f4064958328179-_1.jpg%3fv%3d1669306344&ehk=VwRkTuhILiyTg%2bUhq0q4mbNIxU5YwkhDdCrPFTF8PbI%3d&risl=&pid=ImgRaw&r=0",
         altText: "Cargo Joggers Front View",
+      },
+      {
+        url: "https://images.bewakoof.com/original/men-s-grey-super-loose-fit-cargo-joggers-609805-1710770637-2.jpg",
+        altText: "Tapered Sweatpants Front View",
       },
     ],
     rating: 4.7,
@@ -324,13 +344,13 @@ const products = [
     category: "Bottom Wear",
     brand: "ChillZone",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Gray", "Charcoal", "Blue"],
+    colors: ["Gray", "Charcoal", "Blue","Black"],
     collections: "Lounge Collection",
     material: "Fleece",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=11",
+        url: "https://i.pinimg.com/originals/58/09/dd/5809dde4013f47cbecfb1e3bacf03dad.jpg",
         altText: "Tapered Sweatpants Front View",
       },
     ],
@@ -354,8 +374,12 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=12",
-        altText: "Denim Jeans Front View",
+        url: "https://thvnext.bing.com/th/id/OIP.9v608D6lXuxe9jhyEeUwIgHaJ3?r=0&o=7&cb=ucfimg2rm=3&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+        altText: "Chino Pants Front View",
+      },
+      {
+        url: "https://tse3.mm.bing.net/th/id/OIP.O_DAJ3BuONzLYoMTRx1HkQHaJ3?r=0&cb=ucfimg2ucfimg=1&w=4000&h=5333&rs=1&pid=ImgDetMain&o=7&rm=3",
+        altText: "Denim Jeans Back View",
       },
     ],
     rating: 4.6,
@@ -372,13 +396,13 @@ const products = [
     category: "Bottom Wear",
     brand: "CasualLook",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Beige", "Navy", "Black"],
+    colors: ["Gray", "Navy", "Black"],
     collections: "Smart Casual Collection",
     material: "Cotton",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=13",
+        url: "https://www.rw-co.com/on/demandware.static/-/Sites-Rwco-master-catalog/default/dw746a37b6/images/xlarge/rwco_751439_90_0.jpg",
         altText: "Chino Pants Front View",
       },
     ],
@@ -402,7 +426,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=14",
+        url: "https://assets.adidas.com/images/w_940,f_auto,q_auto/41b72c46f57f486391ebad2400b3e72f_9366/H48447_21_model.jpg",
         altText: "Track Pants Front View",
       },
     ],
@@ -426,7 +450,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=15",
+        url: "https://assets.myntassets.com/assets/images/22786926/2023/4/15/32193629-c2cc-4675-b4fb-0451d92bfb7c1681542031559Trousers1.jpg?",
         altText: "Slim Fit Trousers Front View",
       },
     ],
@@ -444,13 +468,13 @@ const products = [
     category: "Bottom Wear",
     brand: "StreetWear",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Olive", "Brown", "Black"],
+    colors: ["Green", "Brown", "Black"],
     collections: "Street Style Collection",
     material: "Cotton",
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=16",
+        url: "https://tse1.mm.bing.net/th/id/OIP.4ha1ULmKVjedpyHbtyAlmQHaLH?r=0&cb=ucfimg2ucfimg=1&w=1333&h=2000&rs=1&pid=ImgDetMain&o=7&rm=3",
         altText: "Cargo Pants Front View",
       },
     ],
@@ -474,7 +498,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=17",
+        url: "https://tse4.mm.bing.net/th/id/OIP.lSCZsf3XuuLmWOtwNbJyWgHaKr?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
         altText: "Relaxed Fit Sweatpants Front View",
       },
     ],
@@ -498,7 +522,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=18",
+        url: "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/631990/01/mod01/fnd/IND/fmt/png/PUMA-x-REPRESENT-247-Men's-Relaxed-Fit-Sweatpants",
         altText: "Formal Dress Pants Front View",
       },
     ],
@@ -516,14 +540,18 @@ const products = [
     category: "Bottom Wear",
     brand: "DenimStyle",
     sizes: ["XS", "S", "M", "L", "XL"],
-    colors: ["Dark Blue", "Black", "Light Blue"],
+    colors: ["Gray", "Black", "Blue"],
     collections: "Denim Collection",
     material: "Denim",
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=19",
+        url: "https://tse2.mm.bing.net/th/id/OIP.u-NZVhCXUZNtr9zau0m_vQHaLH?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
         altText: "High-Waist Skinny Jeans",
+      },
+      {
+        url: "https://www.na-kd.com/globalassets/nakd_high_waist_skinny_jeans_1100-001879-0047_01c.jpg?ref=F947B4254A",
+        altText: "Wide-Leg Trousers Front View",
       },
     ],
     rating: 4.8,
@@ -546,7 +574,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=20",
+        url: "https://www.limelush.com/cdn/shop/products/Natural-Waist-Tie-Wide-Leg-Flowy-Pants-front-3_02142023.jpg?v=1676563377&width=1080",
         altText: "Wide-Leg Trousers Front View",
       },
     ],
@@ -570,7 +598,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=21",
+        url: "https://www.uniqlo.com/jp/ja/contents/feature/masterpiece/common/au/img/product/item_12_kv.jpg?240829",
         altText: "Stretch Leggings Front View",
       },
     ],
@@ -588,14 +616,18 @@ const products = [
     category: "Bottom Wear",
     brand: "ChicStyle",
     sizes: ["S", "M", "L"],
-    colors: ["Pink", "Navy", "Black"],
+    colors: ["Pink", "Red", "Black"],
     collections: "Spring Collection",
     material: "Polyester",
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=22",
+        url: "https://tse3.mm.bing.net/th/id/OIP.i6HC8ZS7YYsbCpZ0EnWwPAHaJ3?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
         altText: "Pleated Midi Skirt Front View",
+      },
+      {
+        url: "https://th.bing.com/th/id/R.94dd224892705b9fcc1d116c9109c28b?rik=SSWvqVGHLNggjA&riu=http%3a%2f%2fimg.shein.com%2fimages%2fshein.com%2f201512%2f1451023935957249400.jpg&ehk=q0vEfTvQE%2br8tGSPhvHNQ%2bRwuLMrtpzPpCsVBVAx6H0%3d&risl=&pid=ImgRaw&r=0",
+        altText: "Flared Palazzo Pants Front View",
       },
     ],
     rating: 4.6,
@@ -618,7 +650,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=23",
+        url: "https://i.pinimg.com/originals/a2/52/43/a252435da837a05f5970efdd79089554.jpg",
         altText: "Flared Palazzo Pants Front View",
       },
     ],
@@ -642,7 +674,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=24",
+        url: "https://thvnext.bing.com/th/id/OIP.DQ3_R2NmH_9-Idc1R6txMgHaI4?r=0&o=7&cb=ucfimg2rm=3&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
         altText: "High-Rise Joggers Front View",
       },
     ],
@@ -660,13 +692,13 @@ const products = [
     category: "Bottom Wear",
     brand: "SunnyStyle",
     sizes: ["S", "M", "L"],
-    colors: ["White", "Khaki", "Blue"],
+    colors: ["White", "Black", "Blue"],
     collections: "Summer Collection",
     material: "Cotton",
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=25",
+        url: "https://cdn-img.prettylittlething.com/c/b/7/e/cb7e0315a72de94caa2c42a82408f45ae2929fec_CLS8424_1.JPG",
         altText: "Paperbag Waist Shorts Front View",
       },
     ],
@@ -690,7 +722,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=26",
+        url: "https://cdn.shopify.com/s/files/1/0293/9277/products/05-25-18_Studio_1_RT693322_White0110_6_800x.JPG?v=1529564150",
         altText: "Stretch Denim Shorts Front View",
       },
     ],
@@ -708,13 +740,13 @@ const products = [
     category: "Bottom Wear",
     brand: "ChicStyle",
     sizes: ["S", "M", "L", "XL"],
-    colors: ["Black", "White", "Olive"],
+    colors: ["Black", "White", "Blue"],
     collections: "Casual Collection",
     material: "Polyester",
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=27",
+        url: "https://www.bodenimages.com/productimages/r1aproductlarge/23wspr_t0788_nav_m01.jpg",
         altText: "Culottes Front View",
       },
     ],
@@ -738,7 +770,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=28",
+        url: "https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_100,w_1080/v1/assets/images/29922569/2024/6/7/a677451a-bf14-464b-a718-942902f1a1fa1717774183156XposeWomenComfortHigh-RiseTrousers5.jpg",
         altText: "Classic Pleated Trousers Front View",
       },
     ],
@@ -756,13 +788,17 @@ const products = [
     category: "Top Wear",
     brand: "ChicKnit",
     sizes: ["S", "M", "L"],
-    colors: ["Beige", "White"],
+    colors: ["Beige","White","Orange"],
     collections: "Knits Collection",
     material: "Cotton Blend",
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=29",
+        url: "https://tse1.explicit.bing.net/th/id/OIP.RAU9fN9napwYVuMJprLyUgHaLI?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+        altText: "Knitted Cropped Top",
+      },
+      {
+        url: "https://www.refinery29.com/images/8502697.jpeg",
         altText: "Knitted Cropped Top",
       },
     ],
@@ -786,8 +822,12 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=30",
+        url: "https://www.thebluedoorboutique.com/images/D/0516-70.jpg",
         altText: "Boho Floral Blouse",
+      },
+      {
+        url: "https://www.thebluedoorboutique.com/images/D/0516-70.jpg",
+        altText: "Casual T-Shirt",
       },
     ],
     rating: 4.7,
@@ -810,7 +850,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=31",
+        url: "https://imgix.bustle.com/uploads/image/2021/4/15/28357a3b-de64-451e-9c9d-e061b572ef9e-most-comfortable-tshirts_-fair-indigo.png?w=400&h=704&fit=crop&crop=faces&auto=format%2Ccompress&q=50&dpr=2",
+        altText: "Casual T-Shirt",
+      },
+      {
+        url: "https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_100,w_1080/v1/assets/images/5642208/2018/5/18/2eae17ba-5dee-4e08-b6b9-fbd9a676fce51526644041928-Style-Quotient-Women-Navy-Blue-Solid-Round-Neck-T-shirt-8281526644041804-1.jpg",
         altText: "Casual T-Shirt",
       },
     ],
@@ -834,8 +878,12 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=32",
+        url: "https://tse3.mm.bing.net/th/id/OIP.zqfIvv1HVP0ERyol7HNw9AHaLG?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
         altText: "Off-Shoulder Top",
+      },
+      {
+        url: "https://tse2.mm.bing.net/th/id/OIP.Fepu3Sjyfixjm6qn3pvRRAHaLH?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+        altText: "Casual T-Shirt",
       },
     ],
     rating: 4.7,
@@ -858,8 +906,12 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=33",
+        url: "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/e344d20c319fe73c189b12627514cdb4639f8d1f_xxl-1.jpg",
         altText: "Lace-Trimmed Cami Top",
+      },
+      {
+        url: "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/7f2ec934ca52ca50146f53ad6e29e20a0c12ffd2_xxl-1.jpg",
+        altText: "Casual T-Shirt",
       },
     ],
     rating: 4.8,
@@ -882,8 +934,12 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=34",
+        url: "https://i.pinimg.com/originals/38/e6/de/38e6de649dc076c30dcbff0160cc86fb.jpg",
         altText: "Graphic Print Tee",
+      },
+      {
+        url: "https://i.pinimg.com/736x/9e/c5/84/9ec5843a5b5c3020d5ae1747d6e6d508.jpg",
+        altText: "Casual T-Shirt",
       },
     ],
     rating: 4.6,
@@ -906,8 +962,12 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=35",
+        url: "https://www.limelush.com/cdn/shop/files/Maroon-Turtleneck-Ribbed-Long-Sleeve-Top-close_12112024_21b71d50-7ae5-481c-82c8-cb1903aff243.jpg?v=1735933800&width=1400",
         altText: "Ribbed Long-Sleeve Top",
+      },
+      {
+        url: "https://tse1.explicit.bing.net/th/id/OIP.1iWdiAmw-gWYzl1jWju1vwHaLG?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+        altText: "Casual T-Shirt",
       },
     ],
     rating: 4.7,
@@ -924,14 +984,18 @@ const products = [
     category: "Top Wear",
     brand: "FeminineWear",
     sizes: ["S", "M", "L"],
-    colors: ["White", "Navy", "Lavender"],
+    colors: ["White", "Navy", "Red"],
     collections: "Summer Collection",
     material: "Viscose",
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=36",
+        url: "https://s3-eu-west-1.amazonaws.com/images.linnlive.com/3e4b55065e7c282e451f0095407c3067/de088c23-753c-4fa3-abf9-cd38a671789b.jpg",
         altText: "Ruffle-Sleeve Blouse",
+      },
+      {
+        url: "https://tse1.explicit.bing.net/th/id/OIP.mDVWv2VGMp6t2WqNHAXqyAAAAA?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+        altText: "Casual T-Shirt",
       },
     ],
     rating: 4.5,
@@ -954,8 +1018,12 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=37",
+        url: "https://tse4.mm.bing.net/th/id/OIP.PNZLT7-U7WQBSfeTnsTRwAHaJ3?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
         altText: "Classic Button-Up Shirt",
+      },
+      {
+        url: "https://tse4.mm.bing.net/th/id/OIP.tc8XuU23qZbL7GDjXequygHaJ4?r=0&cb=ucfimg2ucfimg=1&w=2077&h=2770&rs=1&pid=ImgDetMain&o=7&rm=3",
+        altText: "Casual T-Shirt",
       },
     ],
     rating: 4.8,
@@ -972,13 +1040,13 @@ const products = [
     category: "Top Wear",
     brand: "ChicWrap",
     sizes: ["S", "M", "L"],
-    colors: ["Red", "Black", "White"],
+    colors: ["Red", "Black", "White","Gray"],
     collections: "Evening Collection",
     material: "Polyester",
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=38",
+        url: "https://tse1.mm.bing.net/th/id/OIP.M_e8pIY46jUt2eYUx-ubKgHaLH?r=0&cb=ucfimg2ucfimg=1&w=1000&h=1500&rs=1&pid=ImgDetMain&o=7&rm=3",
         altText: "V-Neck Wrap Top",
       },
     ],
