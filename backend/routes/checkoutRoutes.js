@@ -65,6 +65,36 @@ router.post("/:id/create-payment-intent", protect, async (req, res) => {
   }
 });
 
+
+// backend/routes/checkoutRoutes.js
+
+router.put("/:id/pay", async (req, res) => {
+  const { id } = req.params;
+  const { paymentIntentId } = req.body;
+
+  try {
+    const checkout = await Checkout.findById(id);
+    if (!checkout) {
+      return res.status(404).json({ message: "Checkout not found" });
+    }
+
+    // Verify the paymentIntentId with Stripe
+    const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
+    if (paymentIntent.status === "succeeded") {
+      checkout.isPaid = true;
+      checkout.paymentStatus = "Paid";
+      await checkout.save();
+      res.status(200).json(checkout);
+    } else {
+      res.status(400).json({ message: "Payment not successful" });
+    }
+  } catch (error) {
+    console.error("Error updating payment status:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+
 // ==============================
 // Confirm Payment & Mark Checkout Paid
 // ==============================
