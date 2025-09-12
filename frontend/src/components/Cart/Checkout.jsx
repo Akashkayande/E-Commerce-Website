@@ -1,10 +1,11 @@
 import { use, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PayPalButton from "./PayPalButton";
+// import PayPalButton from "./PayPalButton";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
 import { createCheckout } from "../../redux/slices/checkoutSlice";
+import StripeButton from "./StripeButton";
 
 const Checkout = () => {
     const navigate = useNavigate();
@@ -35,7 +36,7 @@ const Checkout = () => {
             const res =await dispatch(createCheckout({
                 checkoutItems:cart.products,
                 shippingAddress:shippingAddress,
-                paymentMethod:"Paypal",
+                paymentMethod:"Stripe",
                 totalPrice:cart.totalPrice,
             }));
             if(res.payload && res.payload._id){
@@ -56,9 +57,9 @@ const Checkout = () => {
             console.error(error);
         }
     }
-    const handleFinalizeCheckout = async (checkout)=>{
+    const handleFinalizeCheckout = async (checkoutId)=>{
         try {
-            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/finalize`,{},
+            await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/finalize`,{},
                 {
                     headers:{
                         Authorization:`Bearer ${localStorage.getItem("userToken")}`,
@@ -135,8 +136,9 @@ const Checkout = () => {
                         <button type="submit" className="w-full bg-black text-white py-3 rounded cursor-pointer">Continue to Payment</button>
                     ):(
                         <div>
-                            <h3 className="text-lg mb-4">Pay with Paypal</h3>
-                            <PayPalButton amount={cart.totalPrice} onSuccess={handlePaymentSuccess} onError={(err)=> alert("payment failed. Try again.")}/>
+                            <h3 className="text-lg mb-4">Pay with Stripe</h3>
+                            {/* <PayPalButton amount={cart.totalPrice} onSuccess={handlePaymentSuccess} onError={(err)=> alert("payment failed. Try again.")}/> */}
+                            <StripeButton checkoutId={checkoutId} amount={cart.totalPrice} onSuccess={handlePaymentSuccess} onError={(err)=> alert("payment failed. Try again.")}/>
                         </div>
                     )}
                 </div>
