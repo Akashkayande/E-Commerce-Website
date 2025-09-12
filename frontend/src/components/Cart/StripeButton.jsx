@@ -1,4 +1,3 @@
-// frontend/components/StripeButton.jsx
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements, CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useState } from "react";
@@ -16,45 +15,31 @@ const CheckoutForm = ({ checkoutId, amount, onSuccess, onError }) => {
     if (!stripe || !elements) return;
 
     setLoading(true);
+    console.log("🔹 Starting Stripe payment for checkoutId:", checkoutId);
 
     try {
-      // 1. Ask backend to create a PaymentIntent in USD
+      // 1️⃣ Create PaymentIntent on backend
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/create-payment-intent`,
-        {}, // ✅ backend uses DB totalPrice, so no need to send amount
-        {
-          headers: { Authorization: `Bearer ${localStorage.getItem("userToken")}` },
-        }
+        {},
+        { headers: { Authorization: `Bearer ${localStorage.getItem("userToken")}` } }
       );
+      console.log("🔹 Client secret received from backend:", data.clientSecret);
 
-      const clientSecret = data.clientSecret; // ✅ correctly extract
-
-      // 2. Confirm card payment on frontend
-      const result = await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: elements.getElement(CardElement),
-        },
+      // 2️⃣ Confirm card payment
+      const result = await stripe.confirmCardPayment(data.clientSecret, {
+        payment_method: { card: elements.getElement(CardElement) },
       });
 
       if (result.error) {
-        console.error("Stripe Payment Error:", result.error);
+        console.error("❌ Stripe payment error:", result.error);
         if (onError) onError(result.error);
       } else if (result.paymentIntent.status === "succeeded") {
-        console.log("✅ Payment succeeded:", result.paymentIntent);
-
-        // 3. Tell backend checkout is paid
-        const response = await axios.put(
-          `${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/pay`,
-          { paymentIntentId: result.paymentIntent.id },
-          {
-            headers: { Authorization: `Bearer ${localStorage.getItem("userToken")}` },
-          }
-        );
-
-        if (onSuccess) onSuccess(response.data.checkout);
+        console.log("✅ Stripe payment succeeded:", result.paymentIntent);
+        if (onSuccess) onSuccess(result.paymentIntent);
       }
     } catch (err) {
-      console.error("Unexpected Error:", err);
+      console.error("❌ Unexpected Stripe error:", err);
       if (onError) onError(err);
     }
 
