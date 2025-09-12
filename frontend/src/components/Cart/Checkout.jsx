@@ -23,62 +23,55 @@ const Checkout = () => {
     phone: "",
   });
 
-  // Redirect if cart is empty
   useEffect(() => {
     if (!cart || !cart.products || cart.products.length === 0) {
       navigate("/");
     }
   }, [cart, navigate]);
 
-  // ==============================
-  // 1️⃣ Create Checkout
-  // ==============================
   const handleCreateCheckout = async (e) => {
     e.preventDefault();
+    console.log("Creating checkout with shippingAddress:", shippingAddress);
     if (cart && cart.products.length > 0) {
-      console.log("Creating checkout with items:", cart.products);
-      const res = await dispatch(
-        createCheckout({
-          checkoutItems: cart.products,
-          shippingAddress,
-          paymentMethod: "Stripe",
-          totalPrice: cart.totalPrice,
-        })
-      );
-      console.log("Checkout response:", res);
-      if (res.payload && res.payload._id) {
-        setCheckoutId(res.payload._id);
-        console.log("✅ Checkout created with ID:", res.payload._id);
+      try {
+        const res = await dispatch(
+          createCheckout({
+            checkoutItems: cart.products,
+            shippingAddress,
+            paymentMethod: "Stripe",
+            totalPrice: cart.totalPrice,
+          })
+        );
+        console.log("Checkout created:", res.payload);
+        if (res.payload && res.payload._id) {
+          setCheckoutId(res.payload._id);
+        }
+      } catch (err) {
+        console.error("Error creating checkout:", err);
       }
     }
   };
 
-  // ==============================
-  // 2️⃣ Payment Success Handler
-  // ==============================
   const handlePaymentSuccess = async (paymentIntent) => {
-    console.log("💳 PaymentIntent received from Stripe:", paymentIntent);
+    console.log("Payment successful callback:", paymentIntent);
     try {
       const response = await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/pay`,
-        { paymentIntentId: paymentIntent.id }, // ✅ Must send paymentIntentId
+        { paymentIntentId: paymentIntent.id },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("userToken")}` },
         }
       );
-      console.log("✅ Backend payment response:", response.data);
+      console.log("Backend updated payment status:", response.data);
 
+      // Finalize checkout and navigate
       await handleFinalizeCheckout(checkoutId);
     } catch (error) {
-      console.error("❌ Payment success handler error:", error);
+      console.error("Error in handlePaymentSuccess:", error);
     }
   };
 
-  // ==============================
-  // 3️⃣ Finalize Checkout
-  // ==============================
   const handleFinalizeCheckout = async (checkoutId) => {
-    console.log("Finalizing checkout with ID:", checkoutId);
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/finalize`,
@@ -87,20 +80,19 @@ const Checkout = () => {
           headers: { Authorization: `Bearer ${localStorage.getItem("userToken")}` },
         }
       );
-      console.log("✅ Order finalized:", response.data);
+      console.log("Checkout finalized, order created:", response.data);
       navigate("/order-confirmation");
     } catch (error) {
-      console.error("❌ Finalize checkout error:", error);
+      console.error("Error finalizing checkout:", error);
     }
   };
 
   if (loading) return <p>Loading cart...</p>;
   if (error) return <p>Error: {error}</p>;
-  if (!cart || !cart.products || cart.products.length === 0)
-    return <p>Your cart is empty</p>;
+  if (!cart || !cart.products || cart.products.length === 0) return <p>Your cart is empty</p>;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto py-10 px-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto py-10 px-6 tracking-tighter">
       <div className="bg-white rounded-lg p-6">
         <h2 className="text-2xl uppercase mb-6">Checkout</h2>
         <form onSubmit={handleCreateCheckout}>
@@ -226,7 +218,7 @@ const Checkout = () => {
                   checkoutId={checkoutId}
                   amount={cart.totalPrice}
                   onSuccess={handlePaymentSuccess}
-                  onError={(err) => console.error("Payment failed:", err)}
+                  onError={(err) => alert("Payment failed. Try again.")}
                 />
               </div>
             )}
@@ -255,7 +247,6 @@ const Checkout = () => {
             </div>
           ))}
         </div>
-
         <div className="flex justify-between items-center text-lg mb-4">
           <p>Subtotal</p>
           <p>${cart.totalPrice?.toLocaleString()}</p>
@@ -274,3 +265,4 @@ const Checkout = () => {
 };
 
 export default Checkout;
+

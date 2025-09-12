@@ -15,7 +15,7 @@ const CheckoutForm = ({ checkoutId, amount, onSuccess, onError }) => {
     if (!stripe || !elements) return;
 
     setLoading(true);
-    console.log("🔹 Starting Stripe payment for checkoutId:", checkoutId);
+    console.log("Submitting payment for checkoutId:", checkoutId);
 
     try {
       // 1️⃣ Create PaymentIntent on backend
@@ -24,22 +24,33 @@ const CheckoutForm = ({ checkoutId, amount, onSuccess, onError }) => {
         {},
         { headers: { Authorization: `Bearer ${localStorage.getItem("userToken")}` } }
       );
-      console.log("🔹 Client secret received from backend:", data.clientSecret);
+      console.log("PaymentIntent created:", data);
 
       // 2️⃣ Confirm card payment
       const result = await stripe.confirmCardPayment(data.clientSecret, {
-        payment_method: { card: elements.getElement(CardElement) },
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
       });
 
       if (result.error) {
-        console.error("❌ Stripe payment error:", result.error);
+        console.error("Stripe payment error:", result.error);
         if (onError) onError(result.error);
       } else if (result.paymentIntent.status === "succeeded") {
-        console.log("✅ Stripe payment succeeded:", result.paymentIntent);
+        console.log("Payment succeeded:", result.paymentIntent);
+
+        // 3️⃣ Update backend payment status
+        const response = await axios.put(
+          `${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/pay`,
+          { paymentIntentId: result.paymentIntent.id },
+          { headers: { Authorization: `Bearer ${localStorage.getItem("userToken")}` } }
+        );
+        console.log("Backend updated payment:", response.data);
+
         if (onSuccess) onSuccess(result.paymentIntent);
       }
     } catch (err) {
-      console.error("❌ Unexpected Stripe error:", err);
+      console.error("Unexpected error:", err);
       if (onError) onError(err);
     }
 
