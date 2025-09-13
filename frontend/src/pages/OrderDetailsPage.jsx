@@ -8,6 +8,12 @@ const OrderDetailsPage = () => {
     const {id} = useParams();
     const dispatch = useDispatch();
     const {orderDetails,loading,error} = useSelector((state)=>state.orders);
+    const navigate = useNavigate();
+
+    const handleRoute = () => {
+        navigate("/my-orders");
+    };
+
 
     useEffect(()=>{
         dispatch(fetchOrderDetails(id));
@@ -78,9 +84,6 @@ const OrderDetailsPage = () => {
 
                     </table>
                 </div>
-                {/* <Link to="my-orders" className='text-blue-500 hover:underline '>
-                    Back To My orders
-                </Link> */}
                 <button onClick={handleRoute} className='text-blue-500 cursor-pointer hover:underline'>Back To My orders</button>
             </div> 
         )}

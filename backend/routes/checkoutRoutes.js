@@ -1,5 +1,4 @@
 const express = require("express");
-const Stripe = require("stripe");
 const { protect } = require("../middleware/authMiddleware");
 const Checkout = require("../models/Checkout");
 const Order = require("../models/Order");
@@ -7,15 +6,6 @@ const Cart = require("../models/Cart");
 
 const router = express.Router();
 
-// Make sure STRIPE_SECRET_KEY is loaded
-console.log("Stripe Secret Key:", process.env.STRIPE_SECRET_KEY);
-
-// Initialize Stripe with secret key
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
-// ==============================
-// Create Checkout session
-// ==============================
 router.post("/", protect, async (req, res) => {
   const { checkoutItems, shippingAddress, paymentMethod, totalPrice } = req.body;
 
@@ -40,94 +30,31 @@ router.post("/", protect, async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+router.put("/:id/pay",protect,async (req,res) => {
+    const {paymentStatus,paymentDetails} = req.body;
+    try {
+        const checkout = await Checkout.findById(req.params.id);
+        if(!checkout){
+            return res.status(404).json({message:"Checkout not found"});
+        }
+        if(paymentStatus === "paid"){
+            checkout.isPaid = true;
+            checkout.paymentStatus = paymentStatus;
+            checkout.paymentDetails = paymentDetails;
+            checkout.paidAt = Date.now();
+            await checkout.save();
 
-// ==============================
-// Create Stripe PaymentIntent
-// ==============================
-router.post("/:id/create-payment-intent", protect, async (req, res) => {
-  try {
-    const checkout = await Checkout.findById(req.params.id);
-    if (!checkout) return res.status(404).json({ message: "Checkout not found" });
-
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: Math.round(checkout.totalPrice * 100), // convert dollars → cents
-      currency: "usd",
-      metadata: {
-        checkoutId: checkout._id.toString(),
-        userId: req.user._id.toString(),
-      },
-    });
-
-    res.json({ clientSecret: paymentIntent.client_secret });
-  } catch (error) {
-    console.error("Error creating payment intent:", error);
-    res.status(500).json({ message: "Stripe error", error: error.message });
-  }
-});
-
-
-// backend/routes/checkoutRoutes.js
-
-router.put("/:id/pay", async (req, res) => {
-  const { id } = req.params;
-  const { paymentIntentId } = req.body;
-
-  try {
-    const checkout = await Checkout.findById(id);
-    if (!checkout) {
-      return res.status(404).json({ message: "Checkout not found" });
+            res.status(200).json(checkout);
+        }else{
+            res.status(400).json({message:"Invaild Payment status"});
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({message:"server error"})
+        
     }
+})
 
-    // Verify the paymentIntentId with Stripe
-    const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
-    if (paymentIntent.status === "succeeded") {
-      checkout.isPaid = true;
-      checkout.paymentStatus = "Paid";
-      await checkout.save();
-      res.status(200).json(checkout);
-    } else {
-      res.status(400).json({ message: "Payment not successful" });
-    }
-  } catch (error) {
-    console.error("Error updating payment status:", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
-
-
-// ==============================
-// Confirm Payment & Mark Checkout Paid
-// ==============================
-router.put("/:id/pay", protect, async (req, res) => {
-  const { paymentIntentId } = req.body;
-
-  try {
-    const checkout = await Checkout.findById(req.params.id);
-    if (!checkout) return res.status(404).json({ message: "Checkout not found" });
-
-    const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
-
-    if (paymentIntent.status === "succeeded") {
-      checkout.isPaid = true;
-      checkout.paymentGateway = "stripe";
-      checkout.paymentStatus = "paid";
-      checkout.paymentDetails = paymentIntent;
-      checkout.paidAt = Date.now();
-      await checkout.save();
-
-      res.status(200).json({ checkout });
-    } else {
-      res.status(400).json({ message: "Payment not successful" });
-    }
-  } catch (error) {
-    console.error("Error verifying payment:", error);
-    res.status(500).json({ message: "Server error" });
-  }
-});
-
-// ==============================
-// Finalize Checkout -> Create Order
-// ==============================
 router.post("/:id/finalize", protect, async (req, res) => {
   try {
     const checkout = await Checkout.findById(req.params.id);
