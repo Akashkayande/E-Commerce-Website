@@ -20,9 +20,11 @@ import EditProductPage from './components/Admin/EditProductPage';
 import OrderManagement from './components/Admin/OrderManagement';
 import ProtectedRoute from "./components/Common/ProtectedRoute"
 
+
 import {Provider} from "react-redux";
 import store from './redux/store';
-import ScrollToTop from './scrollToTop';
+import ScrollToTop from './ScrollToTop';
+
 
 const App = () => {
   return (
